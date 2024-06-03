@@ -40,7 +40,7 @@ public class Interface {
             return new PosicaoXadrez(coluna, linha);
         }
         catch (RuntimeException excecao){
-            throw new InputMismatchException("Erro ao ler posição de xadrez. Posições válidas são de a1 a h8");
+            throw new InputMismatchException("Erro ao ler posicao de xadrez. Posicoes validas são de a1 a h8");
         }
     }
 

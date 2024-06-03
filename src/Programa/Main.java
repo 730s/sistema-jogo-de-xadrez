@@ -18,10 +18,10 @@ public class Main {
                 Interface.limparTela();
                 Interface.mostrarTabuleiro(partidaDeXadrez.pecas());
                 System.out.println();
-                System.out.print("Posição de Origem: ");
+                System.out.print("Origem: ");
                 PosicaoXadrez posicaDeOrigem = Interface.lerPosicaoXadrez(sc);
                 System.out.println();
-                System.out.print("Posição de Destino: ");
+                System.out.print("Destino: ");
                 PosicaoXadrez posicaoDeDestino = Interface.lerPosicaoXadrez(sc);
                 PecaXadrez pecaCapturada = partidaDeXadrez.logicaMovimento(posicaDeOrigem, posicaoDeDestino);
             }
