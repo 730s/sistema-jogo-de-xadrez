@@ -1,8 +1,5 @@
 package TabuleiroConfig;
 
-import TabuleiroConfig.Peca;
-import TabuleiroConfig.Posicao;
-
 public class Tabuleiro {
 
     private Integer linhas;
@@ -11,7 +8,7 @@ public class Tabuleiro {
 
     public Tabuleiro(Integer linhas, Integer colunas) {
         if (linhas < 1 || colunas < 1){
-            throw new ExecoesTabuleiro("Erro ao criar tabuleiro, é necessário que haja pelo menos uma linha e uma coluna");
+            throw new ExcecoesTabuleiro("Erro ao criar tabuleiro, é necessário que haja pelo menos uma linha e uma coluna");
         }
         this.linhas = linhas;
         this.colunas = colunas;
@@ -25,26 +22,26 @@ public class Tabuleiro {
     }
     public Peca peca(int linha, int coluna){
         if (!existenciaPosicao(linha, coluna)){
-            throw new ExecoesTabuleiro("Posição não existente no tabuleiro");
+            throw new ExcecoesTabuleiro("Posição não existente no tabuleiro");
         }
         return pecas[linha][coluna];
     }
     public Peca peca(Posicao posicao){
         if (!existenciaPosicao(posicao)){
-            throw new ExecoesTabuleiro("Posição não existente no tabuleiro");
+            throw new ExcecoesTabuleiro("Posição não existente no tabuleiro");
         }
         return pecas[posicao.getLinha()][posicao.getColuna()];
     }
     public void inserirPeca(Peca peca, Posicao posicao){
         if (existenciaPeca(posicao)){
-            throw new ExecoesTabuleiro("Já existe uma peça na posição "+posicao);
+            throw new ExcecoesTabuleiro("Já existe uma peça na posição "+posicao);
         }
         pecas[posicao.getLinha()][posicao.getColuna()] = peca;
         peca.posicao = posicao;
     }
     public Peca removerPeca(Posicao posicao){
         if (!existenciaPosicao(posicao)){
-            throw new ExecoesTabuleiro("Posição não existente no tabuleiro");
+            throw new ExcecoesTabuleiro("Posição não existente no tabuleiro");
         }
         if (peca(posicao) == null){
             return null;
@@ -64,7 +61,7 @@ public class Tabuleiro {
     }
     public boolean existenciaPeca(Posicao posicao){
         if (!existenciaPosicao(posicao)){
-            throw new ExecoesTabuleiro("Posição não existente no tabuleiro");
+            throw new ExcecoesTabuleiro("Posição não existente no tabuleiro");
         }
         return peca(posicao) != null;
     }
