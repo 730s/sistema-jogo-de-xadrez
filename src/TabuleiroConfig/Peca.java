@@ -1,7 +1,5 @@
 package TabuleiroConfig;
 
-import Tabuleiro.Tabuleiro;
-
 public class Peca {
 
     protected Posicao posicao;

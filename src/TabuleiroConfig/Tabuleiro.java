@@ -1,4 +1,4 @@
-package Tabuleiro;
+package TabuleiroConfig;
 
 import TabuleiroConfig.Peca;
 import TabuleiroConfig.Posicao;
@@ -37,6 +37,8 @@ public class Tabuleiro {
     public Peca peca(Posicao posicao){
         return pecas[posicao.getLinha()][posicao.getColuna()];
     }
-
-
+    public void inserirPeca(Peca peca, Posicao posicao){
+        pecas[posicao.getLinha()][posicao.getColuna()] = peca;
+        peca.posicao = posicao;
+    }
 }
