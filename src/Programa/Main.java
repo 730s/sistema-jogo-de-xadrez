@@ -1,7 +1,9 @@
 package Programa;
 
+import Tabuleiro.Tabuleiro;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.print("Hello World");
+        Tabuleiro tabuleiro = new Tabuleiro(8, 8);
     }
 }
