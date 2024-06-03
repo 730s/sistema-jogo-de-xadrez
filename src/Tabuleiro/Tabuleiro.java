@@ -1,6 +1,7 @@
 package Tabuleiro;
 
 import TabuleiroConfig.Peca;
+import TabuleiroConfig.Posicao;
 
 public class Tabuleiro {
 
@@ -29,4 +30,13 @@ public class Tabuleiro {
     public void setColunas(Integer colunas) {
         this.colunas = colunas;
     }
+
+    public Peca peca(int linha, int coluna){
+        return pecas[linha][coluna];
+    }
+    public Peca peca(Posicao posicao){
+        return pecas[posicao.getLinha()][posicao.getColuna()];
+    }
+
+
 }
