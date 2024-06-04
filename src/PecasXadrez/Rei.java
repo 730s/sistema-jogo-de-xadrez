@@ -10,7 +10,13 @@ public class Rei extends PecaXadrez {
     }
 
     @Override
+    public boolean[][] movimentosPossiveis() {
+        boolean[][] matriz = new boolean[getTabuleiro().getLinhas()][getTabuleiro().getColunas()];
+        return matriz;
+    }
+    @Override
     public String toString() {
         return "K";
     }
+
 }

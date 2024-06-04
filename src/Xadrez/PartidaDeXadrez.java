@@ -40,6 +40,9 @@ public class PartidaDeXadrez {
         if (!tabuleiro.existenciaPosicao(posicao)){
             throw new ExcecoesXadrez("Nao existe peca na posicao de origem");
         }
+        if (!tabuleiro.peca(posicao).existeMovimentosPossiveis()){
+            throw new ExcecoesXadrez("Nao ha movimentos possiveis para a peca");
+        }
     }
     public void inserirNovaPeca(char coluna, int linha, PecaXadrez peca){
         tabuleiro.inserirPeca(peca, new PosicaoXadrez(coluna, linha).posicionar());
@@ -52,6 +55,5 @@ public class PartidaDeXadrez {
         inserirNovaPeca('a', 1, new Torre(tabuleiro, Cores.BRANCO));
         inserirNovaPeca('h', 1, new Torre(tabuleiro, Cores.BRANCO));
         inserirNovaPeca('e', 1, new Rei(tabuleiro, Cores.BRANCO));
-
     }
 }
