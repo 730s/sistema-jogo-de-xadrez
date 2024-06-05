@@ -163,6 +163,7 @@ public class PartidaDeXadrez {
     }
     private void setupInicial(){
         inserirNovaPeca('e', 1, new Rei(tabuleiro, Cores.BRANCO));
+        inserirNovaPeca('d', 1, new Rainha(tabuleiro, Cores.BRANCO));
         inserirNovaPeca('a', 1, new Torre(tabuleiro, Cores.BRANCO));
         inserirNovaPeca('h', 1, new Torre(tabuleiro, Cores.BRANCO));
         inserirNovaPeca('c', 1, new Bispo(tabuleiro, Cores.BRANCO));
@@ -179,6 +180,7 @@ public class PartidaDeXadrez {
         inserirNovaPeca('h', 2, new Peao(tabuleiro, Cores.BRANCO));
 
         inserirNovaPeca('e', 8, new Rei(tabuleiro, Cores.PRETO));
+        inserirNovaPeca('d', 8, new Rainha(tabuleiro, Cores.PRETO));
         inserirNovaPeca('a', 8, new Torre(tabuleiro, Cores.PRETO));
         inserirNovaPeca('h', 8, new Torre(tabuleiro, Cores.PRETO));
         inserirNovaPeca('c', 8, new Bispo(tabuleiro, Cores.PRETO));
