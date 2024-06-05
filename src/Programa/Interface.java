@@ -90,6 +90,9 @@ public class Interface {
         System.out.println();
         System.out.println("Turno: " +partidaDeXadrez.getTurno());
         System.out.println("Aguardando o jogador: " +partidaDeXadrez.getJogadorAtual());
+        if (partidaDeXadrez.getCheck()){
+            System.out.println("Check");
+        }
     }
     private static void mostrarPecasCapturadas(List<PecaXadrez> pecasCapturadas){
         List<PecaXadrez> brancas = pecasCapturadas.stream().filter(x-> x.getCor() == Cores.BRANCO).collect(Collectors.toList());
