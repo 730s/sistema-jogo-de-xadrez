@@ -9,7 +9,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Interface {
-
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";
@@ -27,43 +26,54 @@ public class Interface {
     public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
     public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
     public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
-
-    public static void limparTela(){
+    public static void limparTela() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
-    public static PosicaoXadrez lerPosicaoXadrez(Scanner sc){
+    public static PosicaoXadrez lerPosicaoXadrez(Scanner sc) {
         try {
             String interacao = sc.nextLine();
             char coluna = interacao.charAt(0);
             int linha = Integer.parseInt(interacao.substring(1));
             return new PosicaoXadrez(coluna, linha);
         }
-        catch (RuntimeException excecao){
+        catch (RuntimeException e) {
             throw new InputMismatchException("Erro ao ler posicao de xadrez. Posicoes validas sao de a1 a h8");
         }
     }
-
-    public static void mostrarTabuleiro(PecaXadrez[][] pecas){
-        for (int i=0; i< pecas.length; i++){
+    public static void mostrarTabuleiro(PecaXadrez[][] pecas) {
+        for (int i = 0; i < pecas.length; i++) {
             System.out.print((8 - i) + " ");
-            for (int j=0; j<pecas.length; j++){
-                mostrarPeca(pecas[i][j]);
+            for (int j = 0; j < pecas.length; j++) {
+                mostrarPeca(pecas[i][j], false);
             }
             System.out.println();
         }
         System.out.println("  a b c d e f g h");
     }
-    private static void mostrarPeca(PecaXadrez peca){
-        if (peca == null){
-            System.out.print("-");
+    public static void mostrarTabuleiro(PecaXadrez[][] pecas, boolean[][] movimentosPossiveis) {
+        for (int i = 0; i < pecas.length; i++) {
+            System.out.print((8 - i) + " ");
+            for (int j = 0; j < pecas.length; j++) {
+                mostrarPeca(pecas[i][j], movimentosPossiveis[i][j]);
+            }
+            System.out.println();
+        }
+        System.out.println("  a b c d e f g h");
+    }
+    private static void mostrarPeca(PecaXadrez peca, boolean telaDeFundo) {
+        if (telaDeFundo) {
+            System.out.print(ANSI_BLUE_BACKGROUND);
+        }
+        if (peca == null) {
+            System.out.print("-" + ANSI_RESET);
         }
         else {
-            if (peca.getCor() == Cores.BRANCO){
+            if (peca.getCor() == Cores.BRANCO) {
                 System.out.print(ANSI_WHITE + peca + ANSI_RESET);
             }
             else {
-            System.out.print(ANSI_YELLOW + peca + ANSI_RESET);
+                System.out.print(ANSI_YELLOW + peca + ANSI_RESET);
             }
         }
         System.out.print(" ");
