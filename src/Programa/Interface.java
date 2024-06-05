@@ -78,4 +78,11 @@ public class Interface {
         }
         System.out.print(" ");
     }
+    public static void mostrarPartida(PartidaDeXadrez partidaDeXadrez){
+        mostrarTabuleiro(partidaDeXadrez.Pecas());
+        System.out.println();
+        System.out.println("Turno: " +partidaDeXadrez.getTurno());
+        System.out.println("Aguardando o jogador: " +partidaDeXadrez.getJogadorAtual());
+
+    }
 }
