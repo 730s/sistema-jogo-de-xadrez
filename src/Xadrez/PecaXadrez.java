@@ -6,12 +6,22 @@ import TabuleiroConfig.Peca;
 
 public abstract class PecaXadrez extends Peca {
     private Cores cor;
+    private int contadorDeMovimento;
     public PecaXadrez(Tabuleiro tabuleiro, Cores cor) {
         super(tabuleiro);
         this.cor = cor;
     }
     public Cores getCor() {
         return cor;
+    }
+    public int getContadorDeMovimento(){
+        return contadorDeMovimento;
+    }
+    public void acrescentarContadorDeMovimento(){
+        contadorDeMovimento++;
+    }
+    public void subtrairContadorDeMovimento(){
+        contadorDeMovimento--;
     }
     protected boolean existemPecasAdversarias(Posicao posicao) {
         PecaXadrez p = (PecaXadrez) getTabuleiro().peca(posicao);
