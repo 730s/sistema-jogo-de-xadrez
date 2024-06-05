@@ -89,9 +89,17 @@ public class Interface {
         mostrarPecasCapturadas(capturadas);
         System.out.println();
         System.out.println("Turno: " +partidaDeXadrez.getTurno());
-        System.out.println("Aguardando o jogador: " +partidaDeXadrez.getJogadorAtual());
-        if (partidaDeXadrez.getCheck()){
-            System.out.println("Check");
+        if (!partidaDeXadrez.getCheckMate()){
+            System.out.println("Aguardando o jogador: " +partidaDeXadrez.getJogadorAtual());
+            if (partidaDeXadrez.getCheck()){
+                System.out.println("Check");
+            }
+        }
+        else {
+            System.out.print(ANSI_RED);
+            System.out.println("CheckMate!");
+            System.out.print(ANSI_RESET);
+            System.out.println("Vencedor: " + partidaDeXadrez.getJogadorAtual());
         }
     }
     private static void mostrarPecasCapturadas(List<PecaXadrez> pecasCapturadas){
