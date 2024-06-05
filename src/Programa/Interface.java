@@ -5,8 +5,11 @@ import Xadrez.PartidaDeXadrez;
 import Xadrez.PecaXadrez;
 import Xadrez.PosicaoXadrez;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Interface {
     public static final String ANSI_RESET = "\u001B[0m";
@@ -42,6 +45,7 @@ public class Interface {
         }
     }
     public static void mostrarTabuleiro(PecaXadrez[][] pecas) {
+        System.out.println("  a b c d e f g h");
         for (int i = 0; i < pecas.length; i++) {
             System.out.print((8 - i) + " ");
             for (int j = 0; j < pecas.length; j++) {
@@ -52,6 +56,7 @@ public class Interface {
         System.out.println("  a b c d e f g h");
     }
     public static void mostrarTabuleiro(PecaXadrez[][] pecas, boolean[][] movimentosPossiveis) {
+        System.out.println("  a b c d e f g h");
         for (int i = 0; i < pecas.length; i++) {
             System.out.print((8 - i) + " ");
             for (int j = 0; j < pecas.length; j++) {
@@ -78,11 +83,25 @@ public class Interface {
         }
         System.out.print(" ");
     }
-    public static void mostrarPartida(PartidaDeXadrez partidaDeXadrez){
+    public static void mostrarPartida(PartidaDeXadrez partidaDeXadrez, List<PecaXadrez> capturadas){
         mostrarTabuleiro(partidaDeXadrez.Pecas());
+        System.out.println();
+        mostrarPecasCapturadas(capturadas);
         System.out.println();
         System.out.println("Turno: " +partidaDeXadrez.getTurno());
         System.out.println("Aguardando o jogador: " +partidaDeXadrez.getJogadorAtual());
-
+    }
+    private static void mostrarPecasCapturadas(List<PecaXadrez> pecasCapturadas){
+        List<PecaXadrez> brancas = pecasCapturadas.stream().filter(x-> x.getCor() == Cores.BRANCO).collect(Collectors.toList());
+        List<PecaXadrez> pretas = pecasCapturadas.stream().filter(x-> x.getCor() == Cores.PRETO).collect(Collectors.toList());
+        System.out.println("Pecas capturadas: ");
+        System.out.print("Brancas: ");
+        System.out.print(ANSI_WHITE);
+        System.out.println(Arrays.toString(brancas.toArray()));
+        System.out.print(ANSI_RESET);
+        System.out.print("Pretas: ");
+        System.out.print(ANSI_YELLOW);
+        System.out.println(Arrays.toString(pretas.toArray()));
+        System.out.print(ANSI_RESET);
     }
 }
