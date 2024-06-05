@@ -1,5 +1,6 @@
 package Xadrez;
 
+import PecasXadrez.Peao;
 import PecasXadrez.Rei;
 import PecasXadrez.Torre;
 import TabuleiroConfig.Peca;
@@ -163,11 +164,28 @@ public class PartidaDeXadrez {
         }
     }
     private void setupInicial(){
-        inserirNovaPeca('h', 7, new Torre(tabuleiro, Cores.BRANCO));
-        inserirNovaPeca('d', 1, new Torre(tabuleiro, Cores.BRANCO));
         inserirNovaPeca('e', 1, new Rei(tabuleiro, Cores.BRANCO));
+        inserirNovaPeca('a', 1, new Torre(tabuleiro, Cores.BRANCO));
+        inserirNovaPeca('h', 1, new Torre(tabuleiro, Cores.BRANCO));
+        inserirNovaPeca('a', 2, new Peao(tabuleiro, Cores.BRANCO));
+        inserirNovaPeca('b', 2, new Peao(tabuleiro, Cores.BRANCO));
+        inserirNovaPeca('c', 2, new Peao(tabuleiro, Cores.BRANCO));
+        inserirNovaPeca('d', 2, new Peao(tabuleiro, Cores.BRANCO));
+        inserirNovaPeca('e', 2, new Peao(tabuleiro, Cores.BRANCO));
+        inserirNovaPeca('f', 2, new Peao(tabuleiro, Cores.BRANCO));
+        inserirNovaPeca('g', 2, new Peao(tabuleiro, Cores.BRANCO));
+        inserirNovaPeca('h', 2, new Peao(tabuleiro, Cores.BRANCO));
 
-        inserirNovaPeca('b', 8, new Torre(tabuleiro, Cores.PRETO));;
-        inserirNovaPeca('a', 8, new Rei(tabuleiro, Cores.PRETO));
+        inserirNovaPeca('e', 8, new Rei(tabuleiro, Cores.PRETO));
+        inserirNovaPeca('a', 8, new Torre(tabuleiro, Cores.PRETO));
+        inserirNovaPeca('h', 8, new Torre(tabuleiro, Cores.PRETO));
+        inserirNovaPeca('a', 7, new Peao(tabuleiro, Cores.PRETO));
+        inserirNovaPeca('b', 7, new Peao(tabuleiro, Cores.PRETO));
+        inserirNovaPeca('c', 7, new Peao(tabuleiro, Cores.PRETO));
+        inserirNovaPeca('d', 7, new Peao(tabuleiro, Cores.PRETO));
+        inserirNovaPeca('e', 7, new Peao(tabuleiro, Cores.PRETO));
+        inserirNovaPeca('f', 7, new Peao(tabuleiro, Cores.PRETO));
+        inserirNovaPeca('g', 7, new Peao(tabuleiro, Cores.PRETO));
+        inserirNovaPeca('h', 7, new Peao(tabuleiro, Cores.PRETO));
     }
 }
