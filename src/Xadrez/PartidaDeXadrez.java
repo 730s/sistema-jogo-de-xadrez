@@ -74,7 +74,7 @@ public class PartidaDeXadrez {
         }
         if (testeCheck(jogadorAtual)){
             desfazerMovimento(origem, destino, pecaCapturada);
-            throw new ExcecoesXadrez("Você não pode executar este movimento pois ira ficar ou está em Check");
+            throw new ExcecoesXadrez("Voce nao pode executar este movimento pois ira ficar ou esta em Check");
         }
         check = (testeCheck(oponente(jogadorAtual))) ? true : false;
         if (testeCheckMate(oponente(jogadorAtual))){
@@ -157,13 +157,17 @@ public class PartidaDeXadrez {
         if (!tabuleiro.existenciaPosicao(posicao)) {
             throw new ExcecoesXadrez("Nao existe peca na posicao de origem");
         }
-        if (jogadorAtual != ((PecaXadrez)tabuleiro.peca(posicao)).getCor()){
-            throw new ExcecoesXadrez("A peça escolhida não é sua");
+        if (tabuleiro.peca(posicao) == null) {
+            throw new ExcecoesXadrez("Nao existe peca na posicao de origem");
+        }
+        if (jogadorAtual != ((PecaXadrez) tabuleiro.peca(posicao)).getCor()) {
+            throw new ExcecoesXadrez("A peca escolhida não e sua");
         }
         if (!tabuleiro.peca(posicao).existeMovimentosPossiveis()) {
             throw new ExcecoesXadrez("Nao ha movimentos possiveis para a peca");
         }
     }
+
     private void validarPosicaoDeDestino(Posicao origem, Posicao destino) {
         if (!tabuleiro.peca(origem).movimentoPossivel(destino)) {
             throw new ExcecoesXadrez("A peca escolhida nao pode se mover para a posicao de destino");

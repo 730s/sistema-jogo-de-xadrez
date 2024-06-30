@@ -29,24 +29,22 @@ public class Main {
                 System.out.print("Destino: ");
                 PosicaoXadrez destino = Interface.lerPosicaoXadrez(sc);
                 PecaXadrez pecaCapturada = partidaDeXadrez.logicaMovimento(origem, destino);
-                if (pecaCapturada != null){
+                if (pecaCapturada != null) {
                     pecasCapturadas.add(pecaCapturada);
                 }
-                if (partidaDeXadrez.getPromovido() != null){
+                if (partidaDeXadrez.getPromovido() != null) {
                     System.out.print("Escolha a peça para substituir o Peao (B, N, R, Q): ");
                     String tipo = sc.nextLine().toUpperCase();
-                    while (!tipo.equals("B") && !tipo.equals("N") && !tipo.equals("R") && !tipo.equals("Q")){
+                    while (!tipo.equals("B") && !tipo.equals("N") && !tipo.equals("R") && !tipo.equals("Q")) {
                         System.out.print("Valor invalido, escolha a peca para substituir o Peao (B, N, R, Q): ");
                         tipo = sc.nextLine().toUpperCase();
                     }
                     partidaDeXadrez.trocaPecaPromovida(tipo);
                 }
-            }
-            catch (ExcecoesXadrez excecao ){
+            } catch (ExcecoesXadrez excecao) {
                 System.out.print(excecao.getMessage());
                 sc.nextLine();
-            }
-            catch (InputMismatchException excecao ){
+            } catch (InputMismatchException excecao) {
                 System.out.print(excecao.getMessage());
                 sc.nextLine();
             }
